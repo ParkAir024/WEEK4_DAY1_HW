@@ -113,7 +113,13 @@ where last_name like '%es' And store_id ='1'
 --9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
 --with ids between 380 and 430? (use group by and having > 250)
 
-select
+select amount, count(amount)
+from payment
+where customer_id BETWEEN 380 and 430
+GROUP BY amount
+having count(amount) > 250
+
+--There are 3 payment amounts
 
 
 --10. Within the film table, how many rating categories are there? And what rating has the most
